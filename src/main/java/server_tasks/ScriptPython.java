@@ -18,8 +18,7 @@ public class ScriptPython {
     @Value("${scriptPath}")
     private String scriptPath;
 
-    public String runScript(String argument1){
-        String result = "";
+    public void runScript(String argument1){
         Process process;
         try{
             LOG.info("Execute python {}", scriptPath);
@@ -39,6 +38,5 @@ public class ScriptPython {
         }catch(IOException e){
             LOG.error("Exception in reading output {0}", e);
         }
-        return result;
     }
 }
