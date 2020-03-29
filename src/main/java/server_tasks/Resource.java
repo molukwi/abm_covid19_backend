@@ -19,6 +19,9 @@ import java.io.InputStream;
 public class Resource {
     private static final Logger LOG = LoggerFactory.getLogger(Resource.class);
 
+    @Value("${pythonPath}")
+    private String pythonPath;
+
     @Value("${scriptPath}")
     private String scriptPath;
 
@@ -47,7 +50,7 @@ public class Resource {
              .withPInfection(p_infection)
              .withPContact(p_contact).build();
 
-        scriptPython.runScript(scriptPath, parameters);
+        scriptPython.runScript(pythonPath, scriptPath, parameters);
 
         return getJsonFile();
     }

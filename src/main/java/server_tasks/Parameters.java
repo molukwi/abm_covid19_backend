@@ -1,5 +1,7 @@
 package server_tasks;
 
+import org.apache.commons.lang3.Validate;
+
 import java.util.Arrays;
 
 public class Parameters {
@@ -12,11 +14,19 @@ public class Parameters {
 
     public Parameters(float random_encounters, float[] prob_communities, float initial_fraction_infected,
                       float fraction_interacting, float p_infection, float p_contact) {
+       Validate.inclusiveBetween(0, 1, random_encounters);
         this.random_encounters = random_encounters;
+        for(float prob_community : prob_communities){
+            Validate.inclusiveBetween(0, 1, prob_community);
+        }
         this.prob_communities = prob_communities;
+        Validate.inclusiveBetween(0, 1, initial_fraction_infected);
         this.initial_fraction_infected = initial_fraction_infected;
+        Validate.inclusiveBetween(0, 1, fraction_interacting);
         this.fraction_interacting = fraction_interacting;
+        Validate.inclusiveBetween(0, 1, p_infection);
         this.p_infection = p_infection;
+        Validate.inclusiveBetween(0, 1, p_contact);
         this.p_contact = p_contact;
     }
 

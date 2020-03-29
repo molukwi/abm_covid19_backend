@@ -14,10 +14,10 @@ import java.nio.charset.StandardCharsets;
 public class ScriptPython {
     private static final Logger LOG = LoggerFactory.getLogger(ScriptPython.class);
 
-    public void runScript(String scriptPath, Parameters parameters) {
+    public void runScript(String pythonPath, String scriptPath, Parameters parameters) {
         final Process process;
         try {
-            String command = "python " + scriptPath + " " + parameters;
+            String command = pythonPath + " " + scriptPath + " " + parameters;
             LOG.info("Execute command: {}", command);
             process =
                     Runtime.getRuntime().exec(command);
