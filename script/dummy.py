@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
+import json
 
 def get():
-    return str(sys.argv)
+    print("open")
 
 
 if __name__ == '__main__':
-    print(sys.argv)
-    get()
+    print("hey")
+    with open('./script/result.json', 'w', encoding='utf-8') as f:
+        json.dump("Test", f, ensure_ascii=False, indent=4)

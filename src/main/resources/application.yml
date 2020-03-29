@@ -1,2 +1,5 @@
 server:
   port: 8888
+
+scriptPath: C:\\project\\covid-19\\abm_covid19_backend\\script\\dummy.py
+jsonPath: C:\\project\\covid-19\\abm_covid19_backend\\script\\result.json
