@@ -5,7 +5,7 @@
 
 ## Run
 1. run Server.java
-1. open http://localhost:8888/api/getJson?argument1=hey
+1. open http://localhost:8888/api/data?argument1=hey
 
 ## Configuration
 ### scriptPath
