@@ -11,4 +11,4 @@
 ### scriptPath
 Path of the python script which will be executed.
 ### jsonPath
-Path of the generated json by the python script.
+Path of the generated json by the python script (same path as in the python script)

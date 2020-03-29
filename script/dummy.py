@@ -8,6 +8,5 @@ def get():
 
 
 if __name__ == '__main__':
-    print("hey")
     with open('./script/result.json', 'w', encoding='utf-8') as f:
         json.dump("Test", f, ensure_ascii=False, indent=4)
