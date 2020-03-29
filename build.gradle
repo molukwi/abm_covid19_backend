@@ -1,0 +1,51 @@
+buildscript {
+    ext.spring_boot_version = '2.2.5.RELEASE'
+    ext.junit5_version = '5.6.0'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    archivesBaseName = 'server-tasks'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+dependencies {
+    implementation group: 'org.springframework.boot',      name: 'spring-boot-starter-parent',     version: "$spring_boot_version"
+    implementation group: 'org.springframework.boot',      name: 'spring-boot-starter-web',        version: "$spring_boot_version"
+
+    implementation group: 'org.apache.commons',            name: 'commons-lang3',                  version: '3.7'
+    implementation group: 'commons-io',                    name: 'commons-io',                     version: '2.6'
+    implementation group: 'javax.inject',                  name: 'javax.inject',                   version: '1'
+
+    implementation group: 'org.postgresql',                name: 'postgresql',                     version: '42.2.8'
+
+    testImplementation group: 'org.hamcrest',              name: 'hamcrest-library',               version: '2.1'
+    testImplementation group: 'org.junit.jupiter',         name: 'junit-jupiter-api',              version: "$junit5_version"
+    testImplementation group: 'org.junit.jupiter',         name: 'junit-jupiter-engine',           version: "$junit5_version"
+
+    testImplementation group: 'org.springframework.boot',  name: 'spring-boot-starter-test',       version: "$spring_boot_version"
+}
