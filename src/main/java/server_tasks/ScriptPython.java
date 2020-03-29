@@ -1,5 +1,6 @@
 package server_tasks;
 
+import org.apache.juli.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +34,7 @@ public class ScriptPython {
         String line;
         try{
             while((line = reader.readLine()) != null){
-                result += line;
+                LOG.info("Script output: {}", line);
             }
         }catch(IOException e){
             LOG.error("Exception in reading output {0}", e);
