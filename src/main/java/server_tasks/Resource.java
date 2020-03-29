@@ -32,10 +32,22 @@ public class Resource {
     }
 
     @GetMapping(value = "data", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public byte[] getData(@RequestParam String argument1) throws IOException {
-        Validate.notBlank(argument1, "Parameter must not be blank");
+    public byte[] getData(@RequestParam float random_encounters,
+                          @RequestParam float[] prob_communities,
+                          @RequestParam float initial_fraction_infected,
+                          @RequestParam float fraction_interacting,
+                          @RequestParam float p_infection,
+                          @RequestParam float p_contact) throws IOException {
+     final Parameters parameters =
+             new Parameters.Builder()
+                     .withRandomEncounters(random_encounters)
+                     .withProbCommunities(prob_communities)
+                     .withInitialFractionInfected(initial_fraction_infected)
+             .withFractionInteracting(fraction_interacting)
+             .withPInfection(p_infection)
+             .withPContact(p_contact).build();
 
-        scriptPython.runScript(scriptPath, argument1);
+        scriptPython.runScript(scriptPath, parameters);
 
         return getJsonFile();
     }

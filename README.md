@@ -5,7 +5,15 @@
 
 ## Run
 1. run Server.java
-1. open http://localhost:8888/api/data?argument1=hey
+1. open http://localhost:8888/api/data?random_encounters=0.01&prob_communities=1,2,3,4,5&initial_fraction_infected=0.08&fraction_interacting=0.9&p_infection=0.1&p_contact=1.0
+
+## Parameters
+* random_encounters
+* prob_communities
+* initial_fraction_infected
+* fraction_interacting
+* p_infection
+* p_contact
 
 ## Configuration
 ### scriptPath

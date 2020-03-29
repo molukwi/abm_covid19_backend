@@ -9,4 +9,4 @@ def get():
 
 if __name__ == '__main__':
     with open('./script/result.json', 'w', encoding='utf-8') as f:
-        json.dump("Test", f, ensure_ascii=False, indent=4)
+        json.dump(str(sys.argv), f, ensure_ascii=False, indent=4)
