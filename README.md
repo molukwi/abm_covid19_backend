@@ -5,3 +5,5 @@
 
 
 ### Run
+1. run Server.java
+1. open http://localhost:8888/api/getJson?argument1=hey
