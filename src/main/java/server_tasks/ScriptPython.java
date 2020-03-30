@@ -17,7 +17,7 @@ public class ScriptPython {
     public void runScript(String pythonPath, String scriptPath, Parameters parameters) {
         final Process process;
         try {
-            String command = pythonPath + " " + scriptPath + " " + parameters;
+            String command = "python " + scriptPath + " " + parameters;
             LOG.info("Execute command: {}", command);
             process =
                     Runtime.getRuntime().exec(command);

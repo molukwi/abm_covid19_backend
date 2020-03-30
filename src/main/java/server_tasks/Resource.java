@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -23,8 +24,8 @@ public class Resource {
     @Value("${scriptPath}")
     private String scriptPath;
 
-    @Value("${jsonPath}")
-    private String jsonPath;
+    @Value("${jsonPaths}")
+    private String[] jsonPaths;
 
     private final ScriptPython scriptPython;
 
@@ -54,7 +55,11 @@ public class Resource {
     }
 
     private String getJsonFile() throws IOException {
-        LOG.info(jsonPath);
-        return Files.toString(Paths.get(jsonPath).toFile(), StandardCharsets.UTF_8);
+        String result = "";
+        LOG.info(Arrays.toString(jsonPaths));
+        for (String jsonPath : jsonPaths) {
+            result += Files.toString(Paths.get(jsonPath).toFile(), StandardCharsets.UTF_8);
+        }
+        return result;
     }
 }
